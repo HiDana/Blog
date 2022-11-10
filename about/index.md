@@ -8,3 +8,7 @@ eleventyNavigation:
 ---
 
 Coding, Baking | Front End Engineer's Mid-Night Kitchen。熱愛甜食且一直發胖的工程宅。歡迎大家拍拍餵食ヽ(✿ ﾟ ▽ ﾟ)ノ
+
+...
+
+🔨 under building 🏗

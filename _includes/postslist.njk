@@ -1,8 +1,30 @@
 <ul>
 {% for post in postslist | reverse %}
-  <li>
-    <a href="{{ post.url | url }}">{% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}</a>
-    <time  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
-  </li>
+      <li>
+        <article class="post">
+            <h3 class="title">
+              <a href="{{ post.url | url }}">
+                {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
+              </a>
+            </h3>
+            <div class="info">
+              <div class="date-wrap">
+                <span class="date"  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</span>
+              </div>
+              {# {tags.length && tags[0] !== 'undefined' ? <span class="info-dot">·</span> : null}
+              <ul class="tag-list">
+                <li key={`${slug}-${tag}`} class="tag">
+                  <span>
+                    <Link to={`/tags#${tag}`}>{`#${tag}`}</Link>
+                  </span>
+                </li>
+              </ul> #}
+            </div>
+            <div class="post--summary">
+              <p>{% excerpt post %}</p>
+            </div>
+            <a href="{{ post.url | url }}" aria-label="Read more on {{ post.data.title }}">... more</a>
+        </article>
+      </li>
 {% endfor %}
 </ul>

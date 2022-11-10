@@ -1,7 +1,9 @@
 /* Color customization */
 :root {
-  --primary: #84b1ed;
+  --primary: #e4e4e4;
   --primary-dark: #84b1ed;
+  --gray-10: #e4e4e4;
+  --gray-40: #a5a5a8;
 }
 
 .test-dead-code-elimination-sentinel {
@@ -284,6 +286,7 @@ pre {
   font-size: 1em;
 }
 a {
+  text-decoration: none;
   background-color: transparent;
 }
 abbr[title] {
@@ -494,7 +497,7 @@ ul {
 }
 @media (min-width: 600px) {
   h1 {
-    font-size: 4.3978rem;
+    /* font-size: 4.3978rem; */
     line-height: 4.4rem;
   }
   h1,
@@ -543,7 +546,7 @@ ul {
 }
 @media (min-width: 1200px) {
   h1 {
-    font-size: 6.0756rem;
+    font-size: 3rem;
     line-height: 6.72rem;
   }
   h1,
@@ -874,7 +877,7 @@ header {
   max-width: 100%;
   display: flex;
   align-items: center;
-  flex-direction: column;
+  /* flex-direction: column; */
 }
 header p {
   margin-top: 0;
@@ -919,7 +922,6 @@ header nav label {
 main {
   max-width: 70rem;
   margin: 0 auto;
-  border-top: 0.5px solid #ccc;
 }
 footer {
   background: rgba(0, 0, 0, 0.8);
@@ -945,6 +947,7 @@ article {
 }
 ol,
 ul {
+  list-style: none;
   margin-top: 0;
 }
 li dl,
@@ -1119,4 +1122,16 @@ a {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--primary);
+}
+
+/* custom style */
+.post .title {
+  font-size: 1.3rem;
+}
+.post .info {
+  color: var(--gray-40);
+  font-size: 0.84rem;
+}
+.post .post--summary p {
+  font-size: 0.95rem;
 }
