@@ -7,6 +7,4 @@ eleventyNavigation:
   order: 3
 ---
 
-I am a person that writes stuff.
-
-This blog template is based on [eleventy-high-performance-blog](https://www.industrialempathy.com/posts/eleventy-high-performance-blog/) which itself is based on [eleventy-base-blog](https://github.com/11ty/eleventy-base-blog).
+Coding, Baking | Front End Engineer's Mid-Night Kitchen。熱愛甜食且一直發胖的工程宅。歡迎大家拍拍餵食ヽ(✿ ﾟ ▽ ﾟ)ノ

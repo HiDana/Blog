@@ -1,26 +1,26 @@
 {
-  "title": "Title of the website. Update me.",
-  "url": "https://update-me.com",
-  "domain": "update-me.com",
-  "description": "Description of the website. Update me.",
+  "title": "Dana's blog",
+  "url": "https://blog.hidana.me",
+  "domain": "blog.hidana.me",
+  "description": "Coding, Baking | Front End Engineer's Mid-Night Kitchen。熱愛甜食且一直發胖的工程宅。歡迎大家拍拍餵食ヽ(✿ﾟ▽ﾟ)ノ",
   "genre": "Insert a schema.org genre",
-  "googleAnalyticsId": "GA ID. Update me. Note, that this is not compatible with the not-yet-commonly used version 4 of Google Analytics",
+  "googleAnalyticsId": "UA-91860035-1",
   "sendWebVitals": false,
   "feed": {
     "subtitle": "Subtitle. Update me.",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://update-me.com"
+    "id": "https://blog.hidana.me"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://update-me.com/feed/feed.json"
+    "url": "https://blog.hidana.me/feed/feed.json"
   },
   "author": {
-    "name": "Author Name. Update me.",
-    "twitterHandle": "update_me"
+    "name": "Dana Chen",
+    "twitterHandle": ""
   },
   "publisher": {
-    "name": "Publisher name. Update me."
+    "name": "Holic Dana"
   }
 }
