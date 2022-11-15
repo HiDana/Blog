@@ -2,6 +2,7 @@
 :root {
   --primary: #e4e4e4;
   --primary-dark: #84b1ed;
+  --progressColor: #84b1ed;
   --gray-10: #e4e4e4;
   --gray-40: #a5a5a8;
 }
@@ -101,11 +102,11 @@ header aside {
 
 #reading-progress {
   z-index: 1;
-  background-color: var(--primary);
+  background-color: var(--progressColor);
   width: 100vw;
+  height: 2px;
   position: absolute;
   left: 0;
-  top: 0;
   bottom: 0;
   transform: translate(-100vw, 0);
   will-change: transform;
