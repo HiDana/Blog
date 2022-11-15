@@ -229,12 +229,12 @@ html {
   }
 }
 */
-@font-face {
+/* @font-face {
   font-family: "Inter UI";
   font-weight: 100 900;
   font-style: oblique 0deg 10deg;
   src: url("/fonts/Inter-3.19.var.woff2") format("woff2");
-}
+} */
 
 /*
 
@@ -495,6 +495,9 @@ p,
 pre,
 ul {
   margin-bottom: 1.36rem;
+}
+ul {
+  padding-inline-start: 0;
 }
 @media (min-width: 600px) {
   h1 {
@@ -893,7 +896,7 @@ header nav {
   left: 0;
   width: 100vw;
   padding: 0.375em 1.5em;
-  background: hsla(0, 0%, 100%, 0.9);
+  background: #181818;
   font-weight: 200;
   text-align: right;
 }
@@ -908,7 +911,7 @@ header nav a {
   font-weight: 700;
   text-decoration: none;
   font-family: var(--font-family);
-  color: #181818;
+  color: var(--gray-10);
   margin-left: 1.5em;
 }
 header nav a:first-of-type {
@@ -1130,6 +1133,9 @@ a {
 }
 
 /* custom style */
+.post {
+  border-top: 1px solid var(--gray-40);
+}
 .post .title {
   font-size: 1.3rem;
 }
