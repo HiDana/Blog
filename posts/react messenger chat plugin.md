@@ -7,7 +7,7 @@ layout: layouts/post.njk
 
 有時候本身有 fb 粉絲頁，也有官方網站，就可以用 facebook messenger plugin 來做兩個平台的連接，這樣潛在客戶就可以直接用官網通到粉絲頁的 messenger
 
-![](chat.png)
+![](/img/20210128/chat.png)
 
 [FB Chat Plugin 官方文件](https://developers.facebook.com/docs/messenger-platform/discovery/facebook-chat-plugin/#browser_support)
 
@@ -19,10 +19,13 @@ layout: layouts/post.njk
 
 [react-messenger-customer-chat](https://www.npmjs.com/package/react-messenger-customer-chat)
 
-    $npm i react-messenger-customer-chat
+```bash
+$npm i react-messenger-customer-chat
+```
 
 使用也是直接使用
 
+```js
     import MessengerCustomerChat from "react-messenger-customer-chat";
     ...
 
@@ -32,6 +35,7 @@ layout: layouts/post.njk
           appId="<APP_ID>"
         />
     </div>
+```
 
 - <PAGE_ID> 可以在 紛絲頁 > about 下面找到
 - <APP_ID> 跟 fb 分享的 id 是一樣的，在 facebook develop 下面 app 的 id
@@ -48,18 +52,20 @@ layout: layouts/post.njk
 
 本地專案先起在 localhost 3000，再用 ngrok 指向 3000
 
-    ./ngrok http 3000
+```bash
+./ngrok http 3000
+```
 
-![](start-ngrok.png)
+![](/img/20210128/start-ngrok.png)
 
 最後再去 粉絲頁 > setting > advanced message > whitelisted domains 設定
 把剛剛 ngrok 起的位置貼到 紛絲頁設定上
 
-![](connect-fb.png)
+![](/img/20210128/connect-fb.png)
 
 再訪問剛剛 ngrok 的位置，就可以看到右下角有我們要的 messenger 了呦！
 
-![](react-chat.png)
+![](/img/20210128/react-chat.png)
 
 ---
 

@@ -20,7 +20,7 @@ layout: layouts/post.njk
 
 寫在 html tag 裡面的標記
 
-```
+```html
 <div itemscope itemtype="http://schema.org/WebSite"></div>
 ```
 
@@ -30,7 +30,7 @@ layout: layouts/post.njk
 
 記，雖然是 script 但是會放在 head 裡面
 
-```
+```js
 <script type="application/ld+json">
   {
      "@context": "http://schema.org",
@@ -41,20 +41,22 @@ layout: layouts/post.njk
 
 在 react 的話，可以寫在 [react-helmet](https://github.com/nfl/react-helmet) 裡
 
-```
+```html
 <Helmet>
   {/* inline script elements */}
-    <script type="application/ld+json">{`
-        {
-            "@context": "http://schema.org"
-        }
-    `}</script>
+  <script type="application/ld+json">
+    {`
+            {
+                "@context": "http://schema.org"
+            }
+        `}
+  </script>
 </Helmet>
 ```
 
 用 [react-helmet](https://github.com/nfl/react-helmet) 也可以用變數帶進去，但記得要 `JSON.stringify()`
 
-```
+```js
 const ldJson = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -84,55 +86,54 @@ const ldJson = {
 
 ### 放在不同 script
 
-```
+```html
 <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "Organization"
-}
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization"
+  }
 </script>
 
 <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@type": "BreadcrumbList"
-}
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList"
+  }
 </script>
 ```
 
 ### 用 array
 
-```
+```html
 <script type="application/ld+json">
-[
-  {
-     "@context": "http://schema.org",
-     "@type": "Organization"
-  },
-  {
-     "@context": "http://schema.org",
-     "@type": "BreadcrumbList"
-  }
-]
+  [
+    {
+      "@context": "http://schema.org",
+      "@type": "Organization"
+    },
+    {
+      "@context": "http://schema.org",
+      "@type": "BreadcrumbList"
+    }
+  ]
 </script>
 ```
 
 ### 用 @graph
 
-```
+```html
 <script type="application/ld+json">
-{
-  "@context": "http://schema.org",
-  "@graph":
-  [
-    {
-       "@type": "Organization"
-    },
-    {
-       "@type": "BreadcrumbList"
-    }
-  ]
-}
+  {
+    "@context": "http://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization"
+      },
+      {
+        "@type": "BreadcrumbList"
+      }
+    ]
+  }
 </script>
 ```
 
@@ -146,7 +147,7 @@ google 有推 [結構化資料測試工具](https://search.google.com/structured
 
 可以用網頁連結，或是程式碼來測試
 
-![structured-data](structured-data.png)
+![structured-data](/img/20201030/structured-data.png)
 
 ---
 
@@ -162,35 +163,39 @@ google 有推 [結構化資料測試工具](https://search.google.com/structured
 
 在 google 搜尋 "金石堂" 或是 "露天" ，可以看到在 google 搜尋結果頁面，會有一個像搜尋匡的東西，用戶可以在這邊直接搜尋，然後導到我們網站自己的搜尋結果頁
 
-![searchAction](searchAction.png)
+![searchAction](/img/20201030/searchAction.png)
 
 ### JSON-LD
 
-```
+```html
 <script type="application/ld+json">
-{
-   "@context": "http://schema.org",
-   "@type": "WebSite",
-   "name": "WebSite name",
-   "url": "https://website.url/",
-   "potentialAction": {
-     "@type": "SearchAction",
-     "target": "https://searchpage.url?&Description={search_term}",
-     "query-input": "required name=search_term"
-   }
-}
+  {
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "WebSite name",
+    "url": "https://website.url/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://searchpage.url?&Description={search_term}",
+      "query-input": "required name=search_term"
+    }
+  }
 </script>
 ```
 
 ### Microdata
 
-```
+```html
 <div itemscope itemtype="http://schema.org/WebSite">
-  <meta itemprop="url" content="[website url]"/>
-  <form itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
-    <meta itemprop="target" content="[website search url]={search_term}"/>
-    <input itemprop="query-input" type="text" name="search_term">
-    <input type="submit">
+  <meta itemprop="url" content="[website url]" />
+  <form
+    itemprop="potentialAction"
+    itemscope
+    itemtype="http://schema.org/SearchAction"
+  >
+    <meta itemprop="target" content="[website search url]={search_term}" />
+    <input itemprop="query-input" type="text" name="search_term" />
+    <input type="submit" />
   </form>
 </div>
 ```
@@ -201,49 +206,44 @@ google 有推 [結構化資料測試工具](https://search.google.com/structured
 
 在搜尋結果下方，會有類似下面這些清單，這些清單可以藉由設定 sitelink 協助搜尋引擎了解，但實際會依照外部連結熱絡度而顯示出來
 
-![siteNavigation](siteNavigation.png)
+![siteNavigation](/img/20201030/siteNavigation.png)
 
 ### JSON-LD
 
-```
+```html
 <script type="application/ld+json">
-{
-  "@context":"http://schema.org",
-  "@type":"ItemList",
-  "itemListElement":
-    [
+  {
+    "@context": "http://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
       {
         "@type": "SiteNavigationElement",
         "position": 1,
         "name": "Startseite",
         "description": "example",
-        "url":"https://www.example/2.com/"
+        "url": "https://www.example/2.com/"
       },
       {
         "@type": "SiteNavigationElement",
         "position": 2,
         "name": "Example1",
         "description": "exapmle1",
-        "url":"https://www.example/3.com"
+        "url": "https://www.example/3.com"
       }
     ]
-}
+  }
 </script>
 ```
 
 ### Microdata
 
-```
-<ul itemScope itemType="http://www.schema.org/SiteNavigationElement">
-  <li itemProp="name">
-    <a itemProp="url" href="https://link/AAA">
-      AAA
-    </a>
+```html
+<ul itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+  <li itemprop="name">
+    <a itemprop="url" href="https://link/AAA"> AAA </a>
   </li>
-  <li itemProp="name">
-    <a itemProp="url" href="https://link/BBB">
-      BBB
-    </a>
+  <li itemprop="name">
+    <a itemprop="url" href="https://link/BBB"> BBB </a>
   </li>
 </ul>
 ```
@@ -252,33 +252,30 @@ google 有推 [結構化資料測試工具](https://search.google.com/structured
 
 在網頁搜尋結果，如果有出現這一條，其實會讓使用者在搜尋頁面時，就清楚網頁整個架構，進而提升用戶點擊的意願性
 
-![breadcrumbList](breadcrumbList.png)
+![breadcrumbList](/img/20201030/breadcrumbList.png)
 
 ### JSON-LD
 
-```
+```json
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
-  "itemListElement":
-  [
+  "itemListElement": [
     {
-    "@type": "ListItem",
-    "position": 1,
-    "item":
-    {
-      "@id": "https://example.com/dresses",
-      "name": "Dresses"
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@id": "https://example.com/dresses",
+        "name": "Dresses"
       }
     },
     {
-    "@type": "ListItem",
-    "position": 2,
-    "item":
-    {
-      "@id": "https://example.com/dresses/real",
-      "name": "Real Dresses"
-    }
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@id": "https://example.com/dresses/real",
+        "name": "Real Dresses"
+      }
     }
   ]
 }
@@ -286,27 +283,27 @@ google 有推 [結構化資料測試工具](https://search.google.com/structured
 
 ### Microdata
 
-```
-<ol itemScope itemType="http://schema.org/BreadcrumbList">
+```html
+<ol itemscope itemtype="http://schema.org/BreadcrumbList">
   <li
-    itemProp="imteListElement"
-    itemScope
-    itemType="http://schema.org/ListItem"
+    itemprop="imteListElement"
+    itemscope
+    itemtype="http://schema.org/ListItem"
   >
-    <a itemProp="item" href="https://link">
+    <a itemprop="item" href="https://link">
       <span itemProp="name">Home</span>
     </a>
-    <meta itemProp="position" content="1" />
+    <meta itemprop="position" content="1" />
   </li>
   <li
-    itemProp="imteListElement"
-    itemScope
-    itemType="http://schema.org/ListItem"
+    itemprop="imteListElement"
+    itemscope
+    itemtype="http://schema.org/ListItem"
   >
-    <a itemProp="item" href="https://link">
+    <a itemprop="item" href="https://link">
       <span itemProp="name">secPage</span>
     </a>
-    <meta itemProp="position" content="2" />
+    <meta itemprop="position" content="2" />
   </li>
 </ol>
 ```

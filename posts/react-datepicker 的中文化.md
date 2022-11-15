@@ -11,7 +11,7 @@ layout: layouts/post.njk
 
 [react-datepicker](https://reactdatepicker.com)
 
-![](datepicker-en.png)
+![](/img/20200916/datepicker-en.png)
 
 使用方式跟文件上寫的一樣，也很方便，這篇主要是談論如何把它中文化的部分
 
@@ -25,13 +25,13 @@ layout: layouts/post.njk
 
 結果裡面有一個 locale 的參數可以去做地名設定，但其實這邊的 local 只是在指當地參考時間的 local time 並不會把整個 datepicker 變成中文化
 
-```
+```js
 () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <DatePicker
       selected={startDate}
-      onChange={date => setStartDate(date)}
+      onChange={(date) => setStartDate(date)}
       locale="en-GB"
       placeholderText="Weeks start on Monday"
     />
@@ -41,13 +41,13 @@ layout: layouts/post.njk
 
 主要運用 [date-fns](https://date-fns.org) 來解決這問題
 
-```
+```bash
 $npm i date-fns
 ```
 
 官方文件好像沒有很明確地表示有哪些國家語言，參考其他人寫法，發現台灣中文在 date-fns 是這樣引入
 
-```
+```js
 import zhTW from "date-fns/locale/zh-TW";
 
  <DatePicker
@@ -58,7 +58,7 @@ import zhTW from "date-fns/locale/zh-TW";
 
 可以直接使用，但也有人用 datepicker 的 registerLocale 做引入
 
-```
+```js
 import DatePicker, { registerLocale } from "react-datepicker";
 import el from "date-fns/locale/el"; // the locale you want
 registerLocale("el", el);
@@ -69,7 +69,7 @@ registerLocale("el", el);
 />
 ```
 
-![](datepicker-zh.png)
+![](/img/20200916/datepicker-zh.png)
 
 ---
 

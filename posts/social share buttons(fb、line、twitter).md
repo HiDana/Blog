@@ -15,7 +15,7 @@ seo 有一個績效叫做 “白帽 seo”
 
 所以通常會在自己網站文章頁面底下，加上方便用戶分享的按鈕，這樣用戶只要一點擊，就可以直接分享到社群，不用複製連結然後再貼給對方
 
-![social-share-btns](social-share-btns.png)
+![social-share-btns](/img/20201127/social-share-btns.png)
 
 這邊簡單介紹在台灣最常用到的幾個社群分享(facebook, line, twitter)
 
@@ -37,7 +37,7 @@ fb 的 dialog 有三種分享方式，[Share Dialog](https://developers.facebook
 
 fb share link 基本是
 
-```
+```text
 https://www.facebook.com/dialog/share?app_id=${AppID}&href=${ShareLink}
 ```
 
@@ -59,11 +59,11 @@ https://www.facebook.com/dialog/share?app_id=${AppID}&href=${ShareLink}
 
 所以通常 fb 分享網址會長這樣
 
-```
+```text
 https://www.facebook.com/dialog/share?app_id=${AppID}&href=${ShareLink}&quote=${TEXT}&hashtag=#tag&redirect_uri=https://facebook.com
 ```
 
-![share-fb-web](share-fb-web.png)
+![share-fb-web](/img/20201127/share-fb-web.png)
 
 至於分享 fb 時，fb 小卡上面的小卡，就是 seo meta og 相關的 tag
 
@@ -73,13 +73,13 @@ https://www.facebook.com/dialog/share?app_id=${AppID}&href=${ShareLink}&quote=${
 
 網路上也有找到這種分享的 url，不用 appID 感覺看起來是以前舊版本的分享方式
 
-```
+```text
 https://www.facebook.com/sharer/sharer.php?u=https://${url}
 
 https://www.facebook.com/sharer/sharer.php?u=https://gingerdesign.com.tw/blog/
 ```
 
-![share-fb-web_sharer](share-fb-web_sharer.png)
+![share-fb-web_sharer](/img/20201127/share-fb-web_sharer.png)
 
 可以看到其實跟上面 share dialog 的分享畫面不太一樣
 
@@ -87,11 +87,16 @@ https://www.facebook.com/sharer/sharer.php?u=https://gingerdesign.com.tw/blog/
 
 官網也有提供另外一個 SDK 的分享方式，但因為要另外安裝 fb 的 script ，所以我通常不是選擇這種分享方式
 
-    FB.ui({
-        display: 'popup',
-        method: 'share',
-        href: 'https://developers.facebook.com/docs/',
-      }, function(response){});
+```js
+FB.ui(
+  {
+    display: "popup",
+    method: "share",
+    href: "https://developers.facebook.com/docs/",
+  },
+  function (response) {}
+);
+```
 
 method 跟 url sharing 一樣也有三種 Share、Feed、Send
 
@@ -107,18 +112,18 @@ method 跟 url sharing 一樣也有三種 Share、Feed、Send
 
 直接開啟 fb app 到個人頁面
 
-```
+```text
 For iOS: fb://profile/PAGEID
 For Android: fb://page/PAGEID
 ```
 
-```
+```text
 fb://profile/4 -> 就會打開 Zuckerberg 的個人粉絲頁
 ```
 
 分享到 fb message
 
-```
+```text
 fb-messenger://share?link=https://gingerdesign.com.tw
 ```
 
@@ -132,7 +137,7 @@ fb-messenger://share?link=https://gingerdesign.com.tw
 
 `[ 20201127 ]` 測試依然可以使用且正常
 
-```
+```text
 http://line.naver.jp/R/msg/<CONTENT TYPE>/?<CONTENT KEY>
 https://line.naver.jp/R/msg/text/?${sharingText}%20https://${url}
 
@@ -156,7 +161,7 @@ http://line.naver.jp/R/msg/text/?test%20message%0D%0Ahttp%3A%2F%2Fline.naver.jp%
 
 2020 發現分享連結換成新版的連結
 
-```
+```text
 https://social-plugins.line.me/lineit/share?url={encodeURIComponent(URL)}
 
 https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fline.me%2Fen
@@ -164,7 +169,7 @@ https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fline.me%2Fen
 
 如果要夾帶文字格式變成這樣
 
-```
+```text
 https://social-plugins.line.me/lineit/share?url={encodeURIComponent(URL)}&text={encodeURIComponent(text)}
 
 https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fline.me%2Fen&text=test%20message
@@ -206,7 +211,7 @@ https://twitter.com/intent/tweet?text=${sharingText}&url=https://${url}&hashtags
 
 雖然是偏方，但最快的解法是，針對 `query` encode 兩次
 
-```
+```js
 const query = a=123&b=456;
 const url = `https://example.com/test?${encodeURIComponent(encodeURIComponent(query),)}`;
 

@@ -7,11 +7,11 @@ layout: layouts/post.njk
 
 最近想把 react 網頁部署在 github page 上，並使用 custom domain，卻遇到了在子頁面重新 refresh 會有 404 的問題
 
-![](1.png)
+![](/img/20190813/1.png)
 
 在這邊先了解一下 react-router 的運作方式
 
-```
+```text
 訪問 test.hidana.me → 跟 server 要東西 → 獲得 index.html → 點擊某個換頁按鈕 -> 運行 js 做頁面轉換(CSR) → 換置頁面到 test.hidana.me/secFloor
 ```
 
@@ -36,7 +36,7 @@ layout: layouts/post.njk
 
 在 react-router 的 BrowserRouter 加上 basename 就可以解決這問題，但 process.env 裡面是空的
 
-```
+```js
 export default function Routes() {
   const store = configureStore({ history });
   return (
@@ -45,7 +45,7 @@ export default function Routes() {
         <Switch>
           <Route exact path="/" component={App} />
           <Route path="/todo" component={Todo} />
-          <Route component={() => (<div>404 Not found </div>)} />
+          <Route component={() => <div>404 Not found </div>} />
         </Switch>
       </BrowserRouter>
     </Provider>
@@ -57,17 +57,17 @@ export default function Routes() {
 
 這邊就可以在 build 時把 PUBLIC_URL 綁進去
 
-```
+```json
 "build": "set PUBLIC_URL=<url> && node scripts/build.js",
 ```
 
 ## 方法三，用 index.html 取代 404.html
 
-![](2.png)
+![](/img/20190813/2.png)
 
 [Using create-react-app on Netlify](https://hugogiraudel.com/2017/05/13/using-create-react-app-on-netlify/)
 
-```
+```json
 //package.json
 {
   "build": "react-scripts build && cp build/index.html build/404.html"
@@ -80,19 +80,19 @@ export default function Routes() {
 
 原本有問題的網頁，如果從根目錄開始點擊，是可以完整呈現的，流程如下
 
-```
+```text
 訪問 test.hidana.me → 點擊某個按鈕到下一層 → 目前網頁在 test.hidana.me/secFloor
 ```
 
 但如果 refresh 後，就會導向 404
 
-```
+```text
 訪問 test.hidana.me → 點擊某個按鈕到下一層 → 目前網頁在 test.hidana.me/secFloor → 在當前網頁 refresh → 導向 404 告訴你找不到
 ```
 
 所以這邊用 index.html 複製過去到 404 讓他模擬，好像是從 index 來的方式，並成功得到 hash 過的 js 檔案可以用
 
-```
+```text
 訪問 test.hidana.me → 點擊某個按鈕到下一層 → 目前網頁在 test.hidana.me/secFloor → 在當前網頁 refresh → 導向 404 告訴你找不到(但模擬成 index.html) -> 成功取得 test.hidana.me/secFloor
 ```
 

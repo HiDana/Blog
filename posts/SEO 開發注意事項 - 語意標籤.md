@@ -28,7 +28,7 @@ layout: layouts/post.njk
 
 在標籤使用的架構大概如下
 
-![語意標籤架構](html5-tags.png)
+![語意標籤架構](/img/20201113/html5-tags.png)
 
 ( this image is from [HTML5 SEO 語意結構區塊](https://www.fooish.com/html/SEO-semantic-layout.html) )
 
@@ -38,7 +38,7 @@ layout: layouts/post.njk
 
 所以如果網站架構是有個 layout 的話，可以這樣寫
 
-```
+```html
 <>
   <Header />
   <main>
@@ -55,10 +55,10 @@ layout: layouts/post.njk
 比如說拿 [580 律師網](https://www.law580.com.tw/) 來舉例
 
 header
-![](header.png)
+![](/img/20201113/header.png)
 
 footer
-![](footer.png)
+![](/img/20201113/footer.png)
 
 [HTML Living Standard 是這麼說 `<nav>` 的](https://html.spec.whatwg.org/multipage/sections.html#the-nav-element)
 
@@ -132,34 +132,31 @@ footer
 
 > In our example, `<section id="main">` contains blog entries. Each blog entry would be suitable for syndicating as an item in an RSS feed, and would make sense when read on its own, out of context, therefore <article> is perfect for them:
 
-```
+```html
 <section id="main">
-    <article>
-      <!-- first blog post -->
-    </article>
+  <article>
+    <!-- first blog post -->
+  </article>
 
-    <article>
-      <!-- second blog post  -->
-    </article>
+  <article>
+    <!-- second blog post  -->
+  </article>
 
-    <article>
-      <!-- third blog post -->
-    </article>
+  <article>
+    <!-- third blog post -->
+  </article>
 </section>
 ```
 
 > For example, if each one of these blog posts has a consistent structure of distinct sections, then you could put sections inside your articles as well. It could look something like this:
 
-```
+```html
 <article>
-  <section id="introduction">
-  </section>
+  <section id="introduction"></section>
 
-  <section id="content">
-  </section>
+  <section id="content"></section>
 
-  <section id="summary">
-  </section>
+  <section id="summary"></section>
 </article>
 ```
 
@@ -176,13 +173,13 @@ section 裡面的 article 是個別一個獨立體
 
 可以可以看到 article 是一張卡片，而包含全部 article 就是 section
 
-![](example-pinkoi.png)
+![](/img/20201113/example-pinkoi.png)
 
 ### 如果頁面是整頁都是相關內容的活動頁的話
 
 看起來也是可以一個區塊一個 section 的切
 
-![](example-kkbox.png)
+![](/img/20201113/example-kkbox.png)
 
 嗯，看起來好像有一點心得了呢！
 

@@ -23,42 +23,45 @@ layout: layouts/post.njk
 
 預設在 app.js 新增兩個按鈕，一個按鈕的 data 會 pass 到 PassCounter 的元件，另一個按鈕的 data 是呈現在該頁面
 
-    function App() {
-      const [passCounter, setPassCounter] = useState(0);
-      const [thisPageCounter, setThisPageCounter] = useState(0);
-      return (
-        <div className="App">
-          <button onClick={() => setPassCounter(passCounter + 1)}>
-            pass 給 counter
-          </button>
-          <Counter num={passCounter} />
-          <button onClick={() => setThisPageCounter(thisPageCounter + 1)}>
-            本頁面 counter
-          </button>
-          <p>本頁面 counter {thisPageCounter}</p>
-        </div>
-      );
-    }
+```js
+function App() {
+  const [passCounter, setPassCounter] = useState(0);
+  const [thisPageCounter, setThisPageCounter] = useState(0);
+  return (
+    <div className="App">
+      <button onClick={() => setPassCounter(passCounter + 1)}>
+        pass 給 counter
+      </button>
+      <Counter num={passCounter} />
+      <button onClick={() => setThisPageCounter(thisPageCounter + 1)}>
+        本頁面 counter
+      </button>
+      <p>本頁面 counter {thisPageCounter}</p>
+    </div>
+  );
+}
+```
 
 然後 PassCounter 我們先用一般的 Component，然後在 render 下面放一個 console 測試是不是有 render
 
-    import React, { Component } from "react";
-    class PassCounter extends Component {
-      render() {
-        console.log("渲染了！！");
-        return <div>PassCounter {this.props.num}</div>;
-      }
-    }
-    export default PassCounter;
+```js
+import React, { Component } from "react";
+class PassCounter extends Component {
+  render() {
+    console.log("渲染了！！");
+    return <div>PassCounter {this.props.num}</div>;
+  }
+}
+export default PassCounter;
+```
 
-![](component.png)
+![](/img/20210225/component.png)
 
 發現在本頁面 set counter 的 data 時，PassCounter 的元件也被渲染了
 
 那現在把原本 Component 換成 PureComponent
 
-```
-
+```js
 import React, { PureComponent } from "react";
 class Counter extends PureComponent {
   render() {
@@ -69,7 +72,7 @@ class Counter extends PureComponent {
 export default Counter;
 ```
 
-![](pureComponent.png)
+![](/img/20210225/pureComponent.png)
 
 恩恩，很成功地去擋掉不必要的渲染了！！
 
@@ -83,17 +86,19 @@ export default Counter;
 
 跟 PureComponent 一樣 `React.memo` 只會確認 props 的改變。如果需要控制比較的方法，你可以提供一個自訂的比較 function 作為第二個參數。
 
-    function MyComponent(props) {
-      /* render using props */
-    }
-    function areEqual(prevProps, nextProps) {
-      /*
+```js
+function MyComponent(props) {
+  /* render using props */
+}
+function areEqual(prevProps, nextProps) {
+  /*
       return true if passing nextProps to render would return
       the same result as passing prevProps to render,
       otherwise return false
       */
-    }
-    export default React.memo(MyComponent, areEqual);
+}
+export default React.memo(MyComponent, areEqual);
+```
 
 官方網站也有註明
 
@@ -102,7 +107,7 @@ export default Counter;
 
 所以剛剛的 PureComponent 改成用 memo 這樣寫就可以囉
 
-```
+```js
 import React, { memo } from "react";
 const Counter = ({ num }) => {
   console.log("渲染了！！");
