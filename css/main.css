@@ -3,8 +3,12 @@
   --primary: #e4e4e4;
   --primary-dark: #84b1ed;
   --progressColor: #84b1ed;
-  --gray-10: #e4e4e4;
+  --gray-80: #4b4b4d;
+  --gray-70: #666666;
+  --gray-60: #78787c;
   --gray-40: #a5a5a8;
+  --gray-20: #dddde0;
+  --gray-10: #f4f4f5;
 }
 
 .test-dead-code-elimination-sentinel {
@@ -1134,10 +1138,11 @@ a {
 
 /* custom style */
 .post {
-  border-top: 1px solid var(--gray-40);
+  border-top: 1px solid var(--gray-80);
 }
 .post .title {
   font-size: 1.3rem;
+  margin-bottom: 0;
 }
 .post .info {
   color: var(--gray-40);
@@ -1145,4 +1150,9 @@ a {
 }
 .post .post--summary p {
   font-size: 0.95rem;
+  margin-block-start: 8px;
+}
+
+.post-tag {
+  margin-right: 8px;
 }

@@ -123,8 +123,8 @@ describe("check build output for a generic post", () => {
     });
 
     it("should have a published date", () => {
-      expect(select("article time")).to.equal("01 May 2018");
-      expect(select("article time", "datetime")).to.equal("2018-05-01");
+      expect(select("header time")).to.equal("01 May 2018");
+      expect(select("header time", "datetime")).to.equal("2018-05-01");
     });
 
     it("should link to twitter with noopener", () => {

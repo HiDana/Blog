@@ -76,14 +76,11 @@
         style="display:none" alt="">
       </noscript>
       {% endif %}
+
     </header>
 
     <main>
       <article>
-        {% if page.url and page.url.indexOf("/posts/") > -1 %}
-          <p>Published <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></p>
-        {% endif %}
-
         {% block article %}
           {{ content | safe }}
         {% endblock %}
