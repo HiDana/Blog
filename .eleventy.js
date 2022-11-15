@@ -190,16 +190,16 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setUseGitIgnore(false);
 
   /* Markdown Overrides */
-  let markdownLibrary = markdownIt({
-    html: true,
-    breaks: true,
-    linkify: true,
-  }).use(markdownItAnchor, {
-    permalink: true,
-    permalinkClass: "direct-link",
-    permalinkSymbol: "#",
-  });
-  eleventyConfig.setLibrary("md", markdownLibrary);
+  // let markdownLibrary = markdownIt({
+  //   html: true,
+  //   breaks: true,
+  //   linkify: true,
+  // }).use(markdownItAnchor, {
+  //   permalink: true,
+  //   permalinkClass: "direct-link",
+  //   permalinkSymbol: "#",
+  // });
+  // eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Browsersync Overrides
   eleventyConfig.setBrowserSyncConfig({

@@ -446,7 +446,7 @@ p,
 pre,
 ul {
   font-size: 1em;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 ol,
 p,
@@ -689,8 +689,12 @@ dt {
   }
 }
 html {
-  font-family: Inter UI, sans-serif;
-  --font-family: Inter UI, sans-serif;
+  font-family: -apple-system, Microsoft JhengHei, "\5FAE\8EDF\6B63\9ED1\9AD4",
+    SimHei, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  --font-family: -apple-system, Microsoft JhengHei, "\5FAE\8EDF\6B63\9ED1\9AD4",
+    SimHei, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 form {
   padding: 1.5em 1.5em 0;
@@ -871,8 +875,8 @@ header label {
   display: none;
 }
 header {
-  padding: 4.5em 1.5em 3em;
-  width: 37.5em;
+  padding: 4.5em 24px 0;
+  width: 42.5em;
   margin: 0 auto;
   text-align: center;
   max-width: 100%;
@@ -943,7 +947,7 @@ footer p {
 article {
   max-width: 100%;
   padding: 1.5em;
-  width: 37.5em;
+  width: 42.5em;
   margin: 0 auto;
 }
 ol,
