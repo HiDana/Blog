@@ -1140,21 +1140,24 @@ a {
 }
 
 /* custom style */
-#posts ul {
+.postList {
   list-style: none;
 }
-.post {
-  border-top: 1px solid var(--gray-80);
+
+.postItem {
+  padding: 0;
+  margin-bottom: 100px;
 }
-.post .title {
+.postItem .title {
   font-size: 1.3rem;
   margin-bottom: 0;
 }
-.post .info {
+.postItem .info {
   color: var(--gray-40);
   font-size: 0.84rem;
 }
-.post .post--summary p {
+.postItem .post--summary p {
+  color: var(--gray-20);
   font-size: 0.95rem;
   margin-block-start: 8px;
 }
