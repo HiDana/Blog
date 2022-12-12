@@ -1153,6 +1153,7 @@ a {
   margin-bottom: 0;
 }
 .postItem .info {
+  min-width: 90px;
   color: var(--gray-40);
   font-size: 0.84rem;
 }
@@ -1168,4 +1169,22 @@ a {
 
 header h1 {
   font-size: 1.8rem;
+}
+
+.postListSimple .postItem {
+  align-items: center;
+  margin-bottom: 10px;
+}
+.postListSimple .postItem .title {
+  font-size: 1.1rem;
+  margin: 0 0 16px 0;
+}
+
+@media (min-width: 678px) {
+  .postListSimple .postItem {
+    display: flex;
+  }
+  .postListSimple .postItem .title {
+    margin: 0 0 0 16px;
+  }
 }

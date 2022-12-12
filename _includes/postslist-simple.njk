@@ -1,0 +1,19 @@
+<ul class="postList postListSimple">
+{% for post in postslist | reverse %}
+      <li>
+        <article class="postItem">
+          <div class="info">
+            <div class="date-wrap">
+              <span class="date"  datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</span>
+            </div>
+          </div>
+          
+          <h3 class="title">
+              <a href="{{ post.url | url }}">
+                {% if post.data.title %}{{ post.data.title }}{% else %}<code>{{ post.url }}</code>{% endif %}
+              </a>
+          </h3>
+        </article>
+      </li>
+{% endfor %}
+</ul>
